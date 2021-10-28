@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Metropolis</title>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+              <a href="#" class="navbar-brand">
+                <img src="./img/logo.svg" alt="">
+              </a>    
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="show-hide collapse navbar-collapse " id='navbarToggleExternalContent'>
+                <ul class="navbar-nav ">
+                  <li class="nav-item">
+                      <a href="" class="nav-link">
+                        <img src="./img/time.png" alt="" class="nav-item__img">
+                        <span class="nav-item__text">10:00 - 23:00
+                        </span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <img src="./img/gps.png" alt="" class="nav-item__img">
+                        <span class="nav-item__text">Как добраться</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <img src="./img/phone.png" alt="" class="nav-item__img">
+                        <span class="nav-item__text">+7 495 197 77 11</span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="button-group ms-auto">
+                    <a href="#" class="button-group-item nav-link">
+                        <img src="./img/Instagram - Negative.png" alt="" class="button-nav__img">
+                    </a>
+                    <button class="button-group-item">
+                        Перейти на сайт Метрополис
+                    </button>
+                </div>
+              </div> 
+            </div>
+        </nav>
+        <div class="container">
+            <div class="banner">
+                <h2 class="banner__title">
+                    <p>М2 Friends&Family: культурно-развлекательное</p>
+                    <p>пространство в ТЦ Метрополис. </p> 
+                </h2>
+                <p class="banner__text">
+                    Тут должен быть какой-то текст представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
+                </p>
+            </div>
+        </div>
+        
+    </header>
+    <div id="app">
+        <main>
+            <div class="playbill container">
+                <h2 class="playbill__title">Афиша событий</h2>
+                <div class="playbill-buttons">
+                    <button class="playbill-btn bnt" :class='{"active" : button === "all"}' @click.prevent="button = 'all'" type='button'>Все события</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "now"}' type='button' @click.prevent="button = 'now'">Текущие события</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "next"}' type='button' @click.prevent="button = 'next'">Предстоящие</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "finished"}' type='button' @click.prevent="button = 'finished'">Завершенные</button>
+                </div>
+                <div class="stocks">
+                    <div class="stock">
+                        <span class="stock-status current">Текущие</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">15,16,18 октября, 2021</span>
+                            </div>
+                            <div class="stock-title">
+                                LIMÉ FALL’21
+                            </div>
+                            <p class="stock-text">
+                                Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stock">
+                        <span class="stock-status next">Скоро!</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">125 января, 2022</span>
+                            </div>
+                            <div class="stock-title">
+                                COLD FUSION CONVERSE
+                            </div>
+                            <p class="stock-text">
+                                Converse представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
+
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stock">
+                        <span class="stock-status next">Скоро!</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">12 декабря - 25 января, 2021/22</span>
+                            </div>
+                            <div class="stock-title">
+                                AKHMADULLINA DREAMS <br> FALL-WINTER 2021/22
+                            </div>
+                            <p class="stock-text">
+                                Коллекция Akhmadullina Dreams Fall-Winter 2021/22
+Основа коллекции – цветовая палитра, сочетающая в себе спокойные оттенки и яркие акценты.
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stock">
+                        <span class="stock-status end">Завершенное</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">16 сентября, 2021</span>
+                            </div>
+                            <div class="stock-title">
+                                SCRIBBLE PARTY
+                            </div>
+                            <p class="stock-text">
+                                Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stock">
+                        <span class="stock-status current">Текущие</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">20 августа  - 30 сентября, 2021</span>
+                            </div>
+                            <div class="stock-title">
+                                THE TALLBROTHERS
+                            </div>
+                            <p class="stock-text">
+                                Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stock">
+                        <span class="stock-status next">Текущие</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">5 сентября, 2021</span>
+                            </div>
+                            <div class="stock-title">
+                                ОСЕННИЙ ВЗРЫВ 
+                            </div>
+                            <p class="stock-text">
+                                Отдыхаем вместе с RE:STORE 
+10% на ноутбуки Mac для студентов и преподавателей.
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </main>
+        <div class="container">
+            <footer>
+                <img src="./img/logo-footer.png" alt="" class="footer-logo">
+                <div class="footer-info">
+                    <a href="" class="footer-item">
+                        <img src="./img/gps.png" alt="" class="footer-icon">
+                        <span class="footer-text">125171, Москва, Ленинградское шоссе, 16а, стр.4</span>
+                    </a>
+                    <a href="" class="footer-item">
+                        <img src="./img/phone.png" alt="" class="footer-icon">
+                        <span class="footer-text">Телефон:  +7 495 197-77-11</span>
+                    </a>
+                    <a href="" class="footer-item">
+                        <img src="./img/time.png" alt="" class="footer-icon">
+                        <span class="footer-text">Часы работы с 10:00 до 23:00</span>
+                    </a>
+                </div>
+                <div class="footer-email">
+                    <h3 class="footer-email__title"></h3>
+                    <form action="" class="footer-inputs">
+                        
+                    </form>
+                </div>
+            </footer>
+        </div>
+        
+    </div>
+   
+<script src="./js/vue.js"></script>
+<script src="./js/main.js"></script>    
+<script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
