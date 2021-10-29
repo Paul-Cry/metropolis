@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-xxl navbar-dark">
             <div class="container">
               <a href="#" class="navbar-brand">
                 <img src="./img/logo.svg" alt="">
@@ -22,20 +22,26 @@
                 <ul class="navbar-nav ">
                   <li class="nav-item">
                       <a href="" class="nav-link">
-                        <img src="./img/time.png" alt="" class="nav-item__img">
+                        <div class="nav-item-sq">
+                            <img src="./img/time.png" alt="" class="nav-item__img">
+                        </div> 
                         <span class="nav-item__text">10:00 - 23:00
                         </span>
                       </a>
                   </li>
                   <li class="nav-item">
                     <a href="" class="nav-link">
-                        <img src="./img/gps.png" alt="" class="nav-item__img">
+                        <div class="nav-item-sq">
+                            <img src="./img/gps.png" alt="" class="nav-item__img">
+                        </div> 
                         <span class="nav-item__text">Как добраться</span>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="" class="nav-link">
-                        <img src="./img/phone.png" alt="" class="nav-item__img">
+                        <div class="nav-item-sq">
+                            <img src="./img/phone.png" alt="" class="nav-item__img">
+                        </div> 
                         <span class="nav-item__text">+7 495 197 77 11</span>
                     </a>
                   </li>
@@ -69,18 +75,90 @@
             <div class="playbill container">
                 <h2 class="playbill__title">Афиша событий</h2>
                 <div class="playbill-buttons">
-                    <button class="playbill-btn bnt" :class='{"active" : button === "all"}' @click.prevent="button = 'all'" type='button'>Все события</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "now"}' type='button' @click.prevent="button = 'now'">Текущие события</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "next"}' type='button' @click.prevent="button = 'next'">Предстоящие</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "finished"}' type='button' @click.prevent="button = 'finished'">Завершенные</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "all"}' type='button' @click.prevent="filterCards('all')" >Все события</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "now"}' type='button' @click.prevent="filterCards('now')">Текущие события</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "next"}'type='button' @click.prevent="filterCards('next')">Предстоящие</button>
+                    <button class="playbill-btn bnt" :class='{"active" : button === "end"}' type='button' @click.prevent="filterCards('end')">Завершенные</button>
                 </div>
+                <select name="" id="playbill-btn" class='playbill-btn'>
+                    <option value="all"  @click.prevent="filterCards('all')">Все события</option>
+                    <option value="now"  @click.prevent="filterCards('now')">Текущие события</option>
+                    <option value="next" @click.prevent="filterCards('next')">Предстоящие</option>
+                    <option value="end"  @click.prevent="filterCards('end')">Завершенные</option>
+                </select>
                 <div class="stocks">
-                    <div class="stock">
-                        <div class="stock-status">Текущие</div>
+                    <div class="stock" :key='element.id' v-for='element in newMas' v-bind:style="{background: element.bcg}">
+                        <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
+                        <div class="stock-content">
+                            <div class="stock-date">
+                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                <span class="stock-date__text">{{element.date}}</span>
+                            </div>
+                            <div class="stock-title">
+                                <pre>{{element.title}}</pre>
+                            </div>
+                            <p class="stock-text">
+                                {{element.text}}
+
+                            </p>
+                            <button class="stock-button btn">
+                                Подробнее
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
+            <footer>
+                <div class="container">
+                    <div class="footer-row">
+                        <a href="#" class='block-footer-logo'><img src="./img/logo-footer.png" alt="" class="footer-logo"></a>
+                        <div class="footer-info">
+                            <h5>Контактная информация</h5>
+                            <div class="footer-info-content">
+                                <a href="" class="footer-item">
+                                    <img src="./img/footer-gps.png" alt="" class="footer-icon">
+                                    <span class="footer-text">125171, Москва, Ленинградское шоссе, 16а, стр.4</span>
+                                </a>
+                                <a href="" class="footer-item">
+                                    <img src="./img/footer-phone.png" alt="" class="footer-icon">
+                                    <span class="footer-text">Телефон:  +7 495 197-77-11</span>
+                                </a>
+                                <a href="" class="footer-item">
+                                    <img src="./img/footer-time.png" alt="" class="footer-icon">
+                                    <span class="footer-text">Часы работы с 10:00 до 23:00</span>
+                                </a>
+                            </div>      
+                        </div>
+                        <div class="footer-email">
+                            <p class="footer-email__title">Узнавайте о предстоящих мероприятиях первым</p>
+                            <form action="" class="footer-inputs">
+                                <div class="inputs-row">
+                                    <input type="text" name="name" class="footer-input" placeholder='Имя'>
+                                    <input type="text" name="lastname" class="footer-input" placeholder='Фамилия'>
+                                </div>
+                                <input type="email" name="email" i d="" class="footer-input" placeholder='e-mail'>
+                                <input type="button" value="Отправить" class="footer-button">
+                                <p class="footer-input__text">Нажимая на кнопку "Отправить", вы даете согласие на обработку ваших персональных данных в соответствии с ФЗ от 27.07.2006 N 152-ФЗ.</p>
+                            </form>
+                        </div>
+                    </div>
+                    <hr> 
+                    <div class="footer-row">
+                        <div class="footer-date-text">
+                            <p class='footer123'>© 2009 - 2021 </p>
+                            <p class='footerN'>«Метрополис»</p>
+                        </div> 
+                        <div class="footer-row-icons">
+                            <a href="#"><img src="./img/ins.png" alt=""></a>
+                            <a href="#"><img src="./img/vk.png" alt=""></a>
+                            <a href="#"><img src="./img/facebook.png" alt=""></a>
+                        </div> 
+                        <span>Goldcarrot</span>
+                    </div>
+                    
+                </div>
+            </footer>     
     </div>
    
 <script src="./js/vue.js"></script>
