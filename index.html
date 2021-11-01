@@ -9,107 +9,251 @@
     <title>Metropolis</title>
 </head>
 <body>
-    <header class="main-header">
-        <nav class="navbar navbar-expand-xxl navbar-dark">
-            <div class="container">
-              <a href="#" class="navbar-brand">
-                <img src="./img/logo.svg" alt="">
-              </a>    
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="show-hide collapse navbar-collapse " id='navbarToggleExternalContent'>
-                <ul class="navbar-nav ">
-                  <li class="nav-item">
-                      <a href="" class="nav-link">
+    <nav class="navbar navbar-expand-xxl navbar-dark">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <img src="./img/logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="show-hide collapse navbar-collapse " id='navbarToggleExternalContent'>
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a href="" class="nav-link">
                         <div class="nav-item-sq">
                             <img src="./img/time.png" alt="" class="nav-item__img">
-                        </div> 
+                        </div>
                         <span class="nav-item__text">10:00 - 23:00
                         </span>
-                      </a>
-                  </li>
-                  <li class="nav-item">
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="" class="nav-link">
                         <div class="nav-item-sq">
                             <img src="./img/gps.png" alt="" class="nav-item__img">
-                        </div> 
+                        </div>
                         <span class="nav-item__text">Как добраться</span>
                     </a>
-                  </li>
-                  <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a href="" class="nav-link">
                         <div class="nav-item-sq">
                             <img src="./img/phone.png" alt="" class="nav-item__img">
-                        </div> 
+                        </div>
                         <span class="nav-item__text">+7 495 197 77 11</span>
                     </a>
-                  </li>
-                </ul>
-                <div class="button-group ms-auto">
-                    <a href="#" class="button-group-item nav-link">
-                        <img src="./img/Instagram - Negative.png" alt="" class="button-nav__img">
-                    </a>
-                    <button class="button-group-item">
-                        Перейти на сайт Метрополис
-                    </button>
-                </div>
-              </div> 
-            </div>
-        </nav>
-        <div class="container">
-            <div class="banner">
-                <h2 class="banner__title">
-                    <p>М2 Friends&Family: культурно-развлекательное</p>
-                    <p>пространство в ТЦ Метрополис. </p> 
-                </h2>
-                <p class="banner__text">
-                    Тут должен быть какой-то текст представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
-                </p>
+                </li>
+            </ul>
+            <div class="button-group ms-auto">
+                <a href="#" class="button-group-item nav-link">
+                    <img src="./img/Instagram - Negative.png" alt="" class="button-nav__img">
+                </a>
+                <button class="button-group-item">
+                    Перейти на сайт Метрополис
+                </button>
             </div>
         </div>
-        
-    </header>
-    <div id="app">
-        <main>
-            <div class="playbill container">
-                <h2 class="playbill__title">Афиша событий</h2>
-                <div class="playbill-buttons">
-                    <button class="playbill-btn bnt" :class='{"active" : button === "all"}' type='button' @click.prevent="filterCards('all')" >Все события</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "now"}' type='button' @click.prevent="filterCards('now')">Текущие события</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "next"}'type='button' @click.prevent="filterCards('next')">Предстоящие</button>
-                    <button class="playbill-btn bnt" :class='{"active" : button === "end"}' type='button' @click.prevent="filterCards('end')">Завершенные</button>
-                </div>
-                <select name="" id="playbill-btn" class='playbill-btn'>
-                    <option value="all"  @click.prevent="filterCards('all')">Все события</option>
-                    <option value="now"  @click.prevent="filterCards('now')">Текущие события</option>
-                    <option value="next" @click.prevent="filterCards('next')">Предстоящие</option>
-                    <option value="end"  @click.prevent="filterCards('end')">Завершенные</option>
-                </select>
-                <div class="stocks">
-                    <div class="stock" :key='element.id' v-for='element in newMas' v-bind:style="{background: element.bcg}">
-                        <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
-                        <div class="stock-content">
-                            <div class="stock-date">
-                                <img src="./img/calendar_today.png" alt="" class="stock__icon">
-                                <span class="stock-date__text">{{element.date}}</span>
-                            </div>
-                            <div class="stock-title">
-                                <pre>{{element.title}}</pre>
-                            </div>
-                            <p class="stock-text">
-                                {{element.text}}
+    </div>
+</nav>
 
+    <div id="app">
+        <transition name="fade">
+            <div class="main-page" v-if="page =='main'" key='main'>
+                <header class="main-header">
+
+                    <div class="container">
+                        <div class="banner">
+                            <h2 class="banner__title">
+                                <p>М2 Friends&Family: культурно-развлекательное</p>
+                                <p>пространство в ТЦ Метрополис. </p>
+                            </h2>
+                            <p class="banner__text">
+                                Тут должен быть какой-то текст представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
                             </p>
-                            <button class="stock-button btn">
-                                Подробнее
-                            </button>
+                        </div>
+                    </div>
+
+                </header>
+                <main>
+                    <div class="playbill container">
+                        <h2 class="playbill__title">Афиша событий</h2>
+                        <div class="playbill-buttons">
+                            <button class="playbill-btn bnt" :class='{"active" : button === "all"}' type='button' @click.prevent="filterCards('all')" >Все события</button>
+                            <button class="playbill-btn bnt" :class='{"active" : button === "now"}' type='button' @click.prevent="filterCards('now')">Текущие события</button>
+                            <button class="playbill-btn bnt" :class='{"active" : button === "next"}'type='button' @click.prevent="filterCards('next')">Предстоящие</button>
+                            <button class="playbill-btn bnt" :class='{"active" : button === "end"}' type='button' @click.prevent="filterCards('end')">Завершенные</button>
+                        </div>
+                        <select name="" id="playbill-btn" class='playbill-btn'>
+                            <option value="all"  @click.prevent="filterCards('all')">Все события</option>
+                            <option value="now"  @click.prevent="filterCards('now')">Текущие события</option>
+                            <option value="next" @click.prevent="filterCards('next')">Предстоящие</option>
+                            <option value="end"  @click.prevent="filterCards('end')">Завершенные</option>
+                        </select>
+                        <div class="stocks">
+                            <div class="stock" :key='element.id' v-for='element in newMas' v-bind:style="{background: element.bcg}">
+                                <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
+                                <div class="stock-content">
+                                    <div class="stock-date">
+                                        <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                        <span class="stock-date__text">{{element.date}}</span>
+                                    </div>
+                                    <div class="stock-title">
+                                        <pre>{{element.title}}</pre>
+                                    </div>
+                                    <p class="stock-text">
+                                        {{element.text}}
+
+                                    </p>
+                                    <button class="stock-button btn">
+                                        Подробнее
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div class="events" v-if='page == "events"' key='events'>
+                <header class="events-header container">
+                    <span class="events-status">Скоро</span>
+                    <div class="events-content">
+                        <div class="events-date">
+                            <img src="./img/events-calen.png" alt="">
+                            <p>25 января, 2022</p>
+                        </div>
+                        <h1 class="events-title">COLD FUSION CONVERSE</h1>
+                        <div class="events-text">
+                            Converse представляет капсулу «Сold Fusion», которая состоит из двух
+                            силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
+                        </div>
+                    </div>
+                </header>
+                <div class="events-info container">
+                    <div class="events-about">
+                        <h2 class="events-about-title">О мероприятии</h2>
+                        <div class="events-about-text">
+                            Converse представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
+                            <br><br>
+
+                            Сhuck Taylor AS Lugged Winter 2.0<br><br>
+                            Верх из водонепроницаемой кожи и холщовый язычок дополнены крючками для быстрой шнуровки, благодаря которым кеды идеально прилегают к ноге и не пропускают тепло. Дизайн протекторов на подошве вдохновлен шевроном, полосы которого направлены в противоположные стороны на пятке и мысе. Это улучшает сцепление и гарантирует защиту от скольжения. Для достижения максимального комфорта в модели объединяются технологии Memory Foam и стелька EVA, а согревающее покрытие согреет ноги в холодную погоду.
+                            <br><br>
+                            Сhuck 70 Explore WP технологии Memory Foam и стелька EVA.
+
+                        </div>
+                    </div>
+                    <div class="events-contact">
+                        <h2 class="events-contact-title">Контактная информация</h2>
+                        <div class="events-contact-item">
+                            <img src="./img/events/events-gps.png" alt="">
+                            <span>125171, Москва, Ленинградское шоссе, 16а, стр.4</span>
+                        </div>
+                        <div class="events-contact-item">
+                            <img src="./img/events/events-phone.png" alt="">
+                            <span>Телефон:  +7 495 197-77-11</span>
+                        </div>
+                        <div class="events-contact-item">
+                            <img src="./img/events/events-time.png" alt="">
+                            <span>Часы работы с 10:00 до 23:00</span>
+                        </div>
+                        <div class="events-contact-item">
+                            <div class='events_img'>
+                                <img src="./img/events/events-vk.png" alt="">
+                            </div>
+                            <span>Вконтакте</span>
+                        </div>
+                        <div class="events-contact-item">
+                            <div class="events_img">
+                                <img src="./img/events/events-inst.png" alt="">
+                            </div>
+                            
+                            <span>Instagram</span>
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="events-dateS ">
+                        <img src="./img/calendar_today.png" alt="">
+                        <span>25 января, 2022</span>
+                    </div>
+                    <div class="events-images">
+                        <div class="events-image">
+                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                        <div class="events-image">
+                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        </div>
+                    </div>
+                    <div class="events-video">
+                        <h2 class="events-video__title">Видео</h2>
+                        <div class="events-video__viedo">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ODIHw8NvhEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-        </main>
-            <footer>
+        </transition>
+
+
+        <footer>
                 <div class="container">
                     <div class="footer-row">
                         <a href="#" class='block-footer-logo'><img src="./img/logo-footer.png" alt="" class="footer-logo"></a>

@@ -1,10 +1,9 @@
 
-
-
 let app = new Vue({
     el: '#app',
     data: {
         button: 'all',
+        page: 'events',
         path: '',
         database: [
             {
