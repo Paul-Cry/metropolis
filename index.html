@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
     <title>Metropolis</title>
 </head>
 <body>
@@ -177,6 +178,9 @@
                         <img src="./img/calendar_today.png" alt="">
                         <span>25 января, 2022</span>
                     </div>
+                    <div class="events-see-img">
+                        
+                    </div>
                     <div class="events-images">
                         <div class="events-image">
                             <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
@@ -241,18 +245,51 @@
                     </div>
                     <div class="events-video">
                         <h2 class="events-video__title">Видео</h2>
-                        <div class="events-video__viedo">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ODIHw8NvhEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <div class="events-style">
+                            <!-- <button class="events-style__button">
+                                <img src="./img/logos_youtube.png" alt="">
+                            </button> -->
+                            <video class="events-video__viedo" controls src="./video/Кроссовки_ASICS_Tiger_из_новой_коллекции_ _Видео_ролик_презентация_ _Спортивная_обувь_Асикс.mp4"></video>
+                        </div>
+                       
+                    </div>
+                    <hr>
+                    <div class="events-other">
+                        <div class="events-other-row">
+                            <h3 class="events-other__title">Другие мероприятия</h3>
+                            <a href="#" class="events-other__link">
+                                Смотреть все мероприятия
+                            </a>
+                        </div>
+                        <div class="owl-carousel owl-theme">
+                            <div class="item" v-for='element in newMas'>
+                                <div class="stock" :key='element.id'  v-bind:style="{background: element.bcg}">
+                                    <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
+                                    <div class="stock-content">
+                                        <div class="stock-date">
+                                            <img src="./img/calendar_today.png" alt="" class="stock__icon">
+                                            <span class="stock-date__text">{{element.date}}</span>
+                                        </div>
+                                        <div class="stock-title">
+                                            <pre>{{element.title}}</pre>
+                                        </div>
+                                        <p class="stock-text">
+                                            {{element.text}}
+    
+                                        </p>
+                                        <button class="stock-button btn">
+                                            Подробнее
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            </iframe>
                         </div>
                     </div>
                 </div>
                 
             </div>
         </transition>
-
-
         <footer>
                 <div class="container">
                     <div class="footer-row">
@@ -306,7 +343,11 @@
     </div>
    
 <script src="./js/vue.js"></script>
-<script src="./js/main.js"></script>    
+<script src="./js/jquery.js"></script>
+
+<script src="./js/main.js"></script>  
+<script src="./js/owl.carousel.min.js"></script>  
+<script src="./js/carousel.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

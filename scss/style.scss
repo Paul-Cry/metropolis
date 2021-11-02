@@ -552,12 +552,7 @@ footer{
         display: flex;
         flex-wrap: wrap;
         align-self: center;
-        
-        // grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-        // grid-template-rows: 1fr 1fr 1fr;
-        // grid-column-gap: 24px;
-        // grid-row-gap: 24px;
-        
+        margin-bottom: 67px;
     }
     &-image{
         position: relative;
@@ -579,18 +574,116 @@ footer{
         }
     }
     &-video{
+        margin-bottom: 100px;
         &__title{
             font-weight:700;
             font-size: 32px;
             line-height: 41px;
+            margin-bottom: 50px;
         }
+    }
+    &-other{
+        margin-bottom: 67px;
+        &__title{
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 41px;
+        }
+        &-row{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        &__link{
+            letter-spacing: -0.04em;
+            text-decoration-line: underline;
+            font-weight: 600;
+            color: #000;
+            font-size: 18px;
+            line-height: 23px;
+            &:hover{
+                color: #000;
+            }
+        }
+        .stock{
+            width: 420px;
+            height: 420px;
+            
+            .stock-title pre{
+                margin: 0;
+                font-size: .805em;
+            }
+        }
+        
+    }
+    &-style{
+        &__button{
+            background: transparent;
+            border: none;
+        }
+    }
+    &-see-img{
+        width: 100%;
+        border: 1px solid ;
+        margin: 0 auto;
+    }
+    hr{
+        margin-bottom: 100px;
     }
 }
 
-    .ytp-title{
-        display: none !important;
-    } 
+video{
+    height: 600px;
+    
+}
 
+
+
+#clickToPlay{
+    background: #1D9A12 !important;
+}
+
+
+.owl{
+    &-carousel{
+        position: relative;
+    }
+    &-item{
+        display: flex;
+        justify-content: center;
+    }
+    &-prev{
+        display: none;
+    }
+    &-next {
+        span{
+            display: block;
+            color: transparent;
+            z-index: 10;
+            background: url("/img/arrow-owl.png") center no-repeat;
+         
+            width: 40px;
+            height: auto;
+        }
+        
+        
+    }
+    &-nav{
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        z-index: 0;
+        background-color:#080808;
+        top: 40%;
+        right:0;
+        border-radius: 50%;
+        display: flex;
+        transform: translateX(50%);
+        align-items: center;
+        justify-content: center;
+    }
+}
 
 
 

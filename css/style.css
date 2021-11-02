@@ -583,6 +583,7 @@ footer hr {
   display: flex;
   flex-wrap: wrap;
   align-self: center;
+  margin-bottom: 67px;
 }
 
 .events-image {
@@ -605,14 +606,115 @@ footer hr {
   transform: translateY(-50%);
 }
 
+.events-video {
+  margin-bottom: 100px;
+}
+
 .events-video__title {
   font-weight: 700;
   font-size: 32px;
   line-height: 41px;
+  margin-bottom: 50px;
 }
 
-.ytp-title {
-  display: none !important;
+.events-other {
+  margin-bottom: 67px;
+}
+
+.events-other__title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+.events-other-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.events-other__link {
+  letter-spacing: -0.04em;
+  text-decoration-line: underline;
+  font-weight: 600;
+  color: #000;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.events-other__link:hover {
+  color: #000;
+}
+
+.events-other .stock {
+  width: 420px;
+  height: 420px;
+}
+
+.events-other .stock .stock-title pre {
+  margin: 0;
+  font-size: .805em;
+}
+
+.events-style__button {
+  background: transparent;
+  border: none;
+}
+
+.events-see-img {
+  width: 100%;
+  border: 1px solid;
+  margin: 0 auto;
+}
+
+.events hr {
+  margin-bottom: 100px;
+}
+
+video {
+  height: 600px;
+}
+
+#clickToPlay {
+  background: #1D9A12 !important;
+}
+
+.owl-carousel {
+  position: relative;
+}
+
+.owl-item {
+  display: flex;
+  justify-content: center;
+}
+
+.owl-prev {
+  display: none;
+}
+
+.owl-next span {
+  display: block;
+  color: transparent;
+  z-index: 10;
+  background: url("/img/arrow-owl.png") center no-repeat;
+  width: 40px;
+  height: auto;
+}
+
+.owl-nav {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  z-index: 0;
+  background-color: #080808;
+  top: 40%;
+  right: 0;
+  border-radius: 50%;
+  display: flex;
+  transform: translateX(50%);
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
