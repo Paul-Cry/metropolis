@@ -3,7 +3,7 @@ let app = new Vue({
     el: '#app',
     data: {
         button: 'all',
-        page: 'main',
+        page: 'events',
         path: '',
         database: [
             {
