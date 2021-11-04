@@ -1,0 +1,2 @@
+$('.slider-events').slick();
+

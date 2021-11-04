@@ -1,16 +1,13 @@
 
 let startSlider =()=>{
-    // return new Promise((res, rej)=>{
-        
-    // })
     $('.slider').slick({
         adaptiveHeight: true,
         slidesToShow: 3,
         centerMode: false,
         arrows: false,
-    asNavFor: ".slider-big"
+        asNavFor: ".slider-big",
+        focusOnSelect: true
     });
-
 
     $('.slider-big').slick({
         adaptiveHeight: true,
@@ -18,16 +15,15 @@ let startSlider =()=>{
         centerMode: false,
         fade: true,
         asNavFor: ".slider"
-    
     });
-    console.log('Готово')
-    // return res()
 
 }
 
 
 
 
+
+$('.slider-test').slick();
 
 
 
@@ -41,7 +37,7 @@ let app = new Vue({
     el: '#app',
     data: {
         button: 'all',
-        page: 'main',
+        page: 'events',
         path: '',
         database: [
             {
@@ -101,10 +97,9 @@ FALL-WINTER 2021/22`,
             }, 
             
         ],
-        body_slider:{
-            // filter: 'background: rgba(0, 0, 0, 0.377);'
-        },
         slider: {
+            flag: false,
+            filter: 'background: rgba(0, 0, 0, 0.377);',
             images:  [
                 './img/events-image/Rectangle 153.jpg',
                 './img/events-image/Rectangle 153.jpg',
@@ -152,6 +147,7 @@ FALL-WINTER 2021/22`,
 
         },
         newMasSlider(index){
+            this.slider.flag = true;
             this.slider.sliderImg = null;
             this.slider.sliderImg = this.slider.images.slice(index);
             this.slider.images.slice(0, index).forEach((element)=>{
@@ -159,7 +155,7 @@ FALL-WINTER 2021/22`,
             })
             setTimeout(() => {
                 startSlider()
-            }, 100);
+            }, 200);
             
         }
     }

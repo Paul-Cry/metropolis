@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
     <link rel="stylesheet" href="./css/slick.css">
     <title>Metropolis</title>
 </head>
@@ -116,7 +115,7 @@
                     </div>
                 </main>
             </div>
-            <div class="events" v-if='page == "events"' key='events' :style='body_slider.filter'>
+            <div class="events" v-if='page == "events"' key='events'>
                 <header class="events-header container">
                     <span class="events-status">Скоро</span>
                     <div class="events-content">
@@ -181,24 +180,33 @@
                     </div>
                     <div class="events-images">
                         <div class="events-image" v-for='(element, index) in slider.images'>
-                            <img class='events-image_item':src="slider.images[index]" alt="" @click='newMasSlider(index)'>
-                            <img class='events-image_item'src="./img/events-image/loop.png" @click='newMasSlider(index)' alt="">
-                        </div>
-
-                        <div class="wrapper-slick">
-                            <div class="slider-big">
-                                    <div class="slider-big__item" v-for='element in slider.sliderImg'>
-                                        <img :src="element" alt="" class="slider-big__img">
+                            <img class='events-image_item':src="slider.images[index]"       alt="" @click='newMasSlider(index)'>
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="" @click='newMasSlider(index)' >
+                        </div> 
+                        <transition name='slider'>
+                            <div class="modal-wind__slider" v-if='slider.flag'>
+                                <!-- <div class="modal-wind-body">
+                                    <div class="exit" @click='slider.flag = false'>
+                                        <img src="./img/close.png" alt="">
                                     </div>
-                                    
-                            </div>
-                            <div class="slider">
-                                <div class="slider__item" v-for='element in slider.sliderImg'> 
-                                    <img :src="element" alt="" class="slider-big__img">
-                                </div>
-                            </div>
-
-                        </div>
+                                    <div class="wrapper-slick">
+                                        <div class="slider-big" >
+                                                <div class="slider-big__item" v-for='element in slider.sliderImg'>
+                                                    <img :src="element" alt="" class="slider-big__img">
+                                                </div>   
+                                        </div>
+                                        <div class="slider">
+                                            <div class="slider__item" v-for='element in slider.sliderImg'> 
+                                                <img :src="element" alt="" class="slider-big__img">
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div> -->
+                                
+                            </div> 
+                        </transition>
+                       
                     </div>
                     <div class="events-video">
                         <h2 class="events-video__title">Видео</h2>
@@ -218,8 +226,8 @@
                                 Смотреть все мероприятия
                             </a>
                         </div>
-                        <div class="owl-carousel owl-theme">
-                            <div class="item" v-for='element in newMas'>
+                        <div class="slider-events ">
+                            <div class="slider__item" v-for='element in newMas'>
                                 <div class="stock" :key='element.id'  v-bind:style="{background: element.bcg}">
                                     <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
                                     <div class="stock-content">
@@ -241,6 +249,14 @@
                                 </div>
                             </div>
                             
+                        </div>
+                        <div class="slider-test">
+                            <div class="slider-test__item">1</div>
+                            <div class="slider-test__item">2</div>
+                            <div class="slider-test__item">3</div>
+                            <div class="slider-test__item">4</div>
+                            <div class="slider-test__item">5</div>
+                            <div class="slider-test__item">6</div>
                         </div>
                     </div>
                 </div>
@@ -302,14 +318,10 @@
 <script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 
-<!-- OWl carousel -->
-<script src="./js/owl.carousel.min.js"></script>  
-<script src="./js/carousel.js"></script>
-<!-- OWl carousel -->
 
 <!-- SLICK slider -->
 <script src="./js/slick.min.js"></script>  
-<script src="./js/slick.js"></script>
+<script src="./js/slick-main.js"></script>
 <!-- SLICK slider -->
 
 <!-- Vue.js    -->
