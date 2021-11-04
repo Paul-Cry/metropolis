@@ -26,6 +26,7 @@
 
 body{
     font-family: Mont;
+    
 }
 
 .main-header{
@@ -550,9 +551,12 @@ footer{
     }
     &-images{
         display: flex;
+        position: relative;
         flex-wrap: wrap;
         align-self: center;
+        z-index: 10;
         margin-bottom: 67px;
+        
     }
     &-image{
         position: relative;
@@ -563,6 +567,11 @@ footer{
             cursor:pointer;
         }
         &_item{
+            &:first-child{
+                width: 220px;
+                height: 150px;
+                object-fit: cover;
+            }
             &:last-child{
                 position: absolute;
                 margin: 0 auto;
@@ -575,6 +584,7 @@ footer{
     }
     &-video{
         margin-bottom: 100px;
+        position: relative;
         &__title{
             font-weight:700;
             font-size: 32px;
@@ -618,31 +628,31 @@ footer{
         
     }
     &-style{
+        display: flex;
+        justify-content: center;
+        z-index: 0;
         &__button{
             background: transparent;
             border: none;
         }
-    }
-    &-see-img{
-        width: 100%;
-        border: 1px solid ;
-        margin: 0 auto;
     }
     hr{
         margin-bottom: 100px;
     }
 }
 
+.wrapper-slick{
+    // position: absolute;
+    left: 0;
+    rigth: 0;
+}
+
 video{
     height: 600px;
-    
 }
 
 
 
-#clickToPlay{
-    background: #1D9A12 !important;
-}
 
 
 .owl{
@@ -683,6 +693,13 @@ video{
         align-items: center;
         justify-content: center;
     }
+}
+
+.slider-big{
+    &__img{
+        width: 100%;  
+    }
+    margin-bottom: 30px;
 }
 
 

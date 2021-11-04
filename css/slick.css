@@ -1,7 +1,9 @@
 /* Слайдер */
 .slick-slider {
     width: 100%;
-    
+    height: 490px;
+    /* display: flex;
+    align-items:center */
 }
 
 .wrapper-slick{
@@ -27,6 +29,7 @@
 
 .slick-list {
     overflow: hidden !important;
+    height: 490px !important;
 } 
 /* Лента слайдов */
 
@@ -98,6 +101,22 @@
 }
 
 .slider-big__item{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    text-align: center; 
 }
-.
+
+.slider__item{
+    display: flex;
+    align-items: center;
+}
+
+.slider_wrap * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    }
+    .slick-slide { margin: 0 11px;}
+    .slider-item img { max-width: 100%;} 
+
+

@@ -1,4 +1,42 @@
 
+let startSlider =()=>{
+    // return new Promise((res, rej)=>{
+        
+    // })
+    $('.slider').slick({
+        adaptiveHeight: true,
+        slidesToShow: 3,
+        centerMode: false,
+        arrows: false,
+    asNavFor: ".slider-big"
+    });
+
+
+    $('.slider-big').slick({
+        adaptiveHeight: true,
+        slidesToShow: 1,
+        centerMode: false,
+        fade: true,
+        asNavFor: ".slider"
+    
+    });
+    console.log('Готово')
+    // return res()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 let app = new Vue({
     el: '#app',
     data: {
@@ -63,6 +101,37 @@ FALL-WINTER 2021/22`,
             }, 
             
         ],
+        body_slider:{
+            // filter: 'background: rgba(0, 0, 0, 0.377);'
+        },
+        slider: {
+            images:  [
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 157.png',
+                './img/events-image/Rectangle 157.png',
+                './img/events-image/Rectangle 157.png',
+                './img/events-image/Rectangle 160.png',
+                './img/events-image/Rectangle 160.png',
+                './img/events-image/Rectangle 160.png',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 157.png',
+                './img/events-image/Rectangle 160.png',
+                './img/events-image/Rectangle 153.jpg',
+                './img/events-image/Rectangle 155.png',
+                './img/events-image/Rectangle 157.png',
+                './img/events-image/Rectangle 160.png',
+            ],
+            sliderImg: []
+        },
         newMas: null
     },
     mounted(){
@@ -81,7 +150,21 @@ FALL-WINTER 2021/22`,
             }
             
 
+        },
+        newMasSlider(index){
+            this.slider.sliderImg = null;
+            this.slider.sliderImg = this.slider.images.slice(index);
+            this.slider.images.slice(0, index).forEach((element)=>{
+                this.slider.sliderImg.push(element)
+            })
+            setTimeout(() => {
+                startSlider()
+            }, 100);
+            
         }
     }
 })
+
+
+
 

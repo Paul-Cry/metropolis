@@ -60,7 +60,7 @@
 </nav>
 
     <div id="app">
-        <transition name="fade">
+        <transition name="fade" >
             <div class="main-page" v-if="page =='main'" key='main'>
                 <header class="main-header">
 
@@ -116,7 +116,7 @@
                     </div>
                 </main>
             </div>
-            <div class="events" v-if='page == "events"' key='events'>
+            <div class="events" v-if='page == "events"' key='events' :style='body_slider.filter'>
                 <header class="events-header container">
                     <span class="events-status">Скоро</span>
                     <div class="events-content">
@@ -179,98 +179,22 @@
                         <img src="./img/calendar_today.png" alt="">
                         <span>25 января, 2022</span>
                     </div>
-                    <div class="events-see-img">
-                        
-                    </div>
                     <div class="events-images">
-                        <div class="events-image">
-                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
+                        <div class="events-image" v-for='(element, index) in slider.images'>
+                            <img class='events-image_item':src="slider.images[index]" alt="" @click='newMasSlider(index)'>
+                            <img class='events-image_item'src="./img/events-image/loop.png" @click='newMasSlider(index)' alt="">
                         </div>
-                        <div class="events-image">
-                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item'src="./img/events-image/Rectangle 153.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 157.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 160.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
-                        <div class="events-image">
-                            <img class='events-image_item' src="./img/events-image/Rectangle 155.png" alt="">
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="">
-                        </div>
+
                         <div class="wrapper-slick">
                             <div class="slider-big">
-                                    <div class="slider-big__item">
-                                        <img src="./img/events-image/Rectangle 153.png" alt="" class="slider-big__img">
-                                    </div>
-                                    <div class="slider-big__item">
-                                        <img src="./img/events-image/Rectangle 155.png" alt="" class="slider-big__img">
-                                    </div>
-                                    <div class="slider-big__item">
-                                        <img src="./img/events-image/Rectangle 157.png" alt="" class="slider-big__img">
-                                    </div>
-                                    <div class="slider-big__item">
-                                        <img src="./img/events-image/Rectangle 160.png" alt="" class="slider-big__img">
+                                    <div class="slider-big__item" v-for='element in slider.sliderImg'>
+                                        <img :src="element" alt="" class="slider-big__img">
                                     </div>
                                     
                             </div>
                             <div class="slider">
-                                <div class="slider__item"> 
-                                    <img src="./img/events-image/Rectangle 153.png" alt="" class="slider-big__img">
-                                </div>
-                                <div class="slider__item"> 
-                                    <img src="./img/events-image/Rectangle 155.png" alt="" class="slider-big__img">
-                                </div>
-                                <div class="slider__item"> 
-                                    <img src="./img/events-image/Rectangle 157.png" alt="" class="slider-big__img">
-                                </div>
-                                <div class="slider__item"> 
-                                    <img src="./img/events-image/Rectangle 160.png" alt="" class="slider-big__img">
+                                <div class="slider__item" v-for='element in slider.sliderImg'> 
+                                    <img :src="element" alt="" class="slider-big__img">
                                 </div>
                             </div>
 
@@ -378,12 +302,6 @@
 <script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 
-<!-- Vue.js    -->
-<script src="./js/vue.js"></script>
-<script src="./js/main.js"></script>
-<!-- Vue.js    -->
-
-
 <!-- OWl carousel -->
 <script src="./js/owl.carousel.min.js"></script>  
 <script src="./js/carousel.js"></script>
@@ -393,6 +311,11 @@
 <script src="./js/slick.min.js"></script>  
 <script src="./js/slick.js"></script>
 <!-- SLICK slider -->
+
+<!-- Vue.js    -->
+<script src="./js/vue.js"></script>
+<script src="./js/main.js"></script>
+<!-- Vue.js    -->
 
 </body>
 </html>
