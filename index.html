@@ -180,13 +180,13 @@
                     </div>
                     <div class="events-images">
                         <div class="events-image" v-for='(element, index) in slider.images'>
-                            <img class='events-image_item':src="slider.images[index]"       alt="" @click='newMasSlider(index)'>
-                            <img class='events-image_item'src="./img/events-image/loop.png" alt="" @click='newMasSlider(index)' >
+                            <img class='events-image_item':src="slider.images[index]"       alt="" @click='newMasSlider(index, true)'>
+                            <img class='events-image_item'src="./img/events-image/loop.png" alt="" @click='newMasSlider(index, true)' >
                         </div> 
                         <transition name='slider'>
                             <div class="modal-wind__slider" v-if='slider.flag'>
-                                <!-- <div class="modal-wind-body">
-                                    <div class="exit" @click='slider.flag = false'>
+                                <div class="modal-wind-body">
+                                    <div class="exit" @click='newMasSlider(index, false)'>
                                         <img src="./img/close.png" alt="">
                                     </div>
                                     <div class="wrapper-slick">
@@ -202,7 +202,7 @@
                                         </div>
                 
                                     </div>
-                                </div> -->
+                                </div>
                                 
                             </div> 
                         </transition>
@@ -249,14 +249,6 @@
                                 </div>
                             </div>
                             
-                        </div>
-                        <div class="slider-test">
-                            <div class="slider-test__item">1</div>
-                            <div class="slider-test__item">2</div>
-                            <div class="slider-test__item">3</div>
-                            <div class="slider-test__item">4</div>
-                            <div class="slider-test__item">5</div>
-                            <div class="slider-test__item">6</div>
                         </div>
                     </div>
                 </div>
@@ -321,7 +313,6 @@
 
 <!-- SLICK slider -->
 <script src="./js/slick.min.js"></script>  
-<script src="./js/slick-main.js"></script>
 <!-- SLICK slider -->
 
 <!-- Vue.js    -->

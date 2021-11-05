@@ -33,8 +33,7 @@
 }
 
 body{
-    font-family: Mont;
-    
+    font-family: Mont; 
 }
 
 .main-header{
@@ -669,13 +668,19 @@ footer{
 .exit{
     width: 45px;
     height: 45px;
+    
     position: absolute;
     top: 20px;
     right: 20px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
     border-radius: 50%;
+    &:hover{
+        background-color: #000;
+    }
+    transition: all .5s;
     img{
         filter: invert(100%);
         width: 25px;
@@ -753,8 +758,15 @@ video{
     &__img{
         width: 100%;  
     }
+    
 }
 
+.slider{
+    .slider-big__img{
+
+    }
+    
+}
 
 
 @media screen and (min-width: 1000px) and (max-width: 1400px) {

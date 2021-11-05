@@ -2,7 +2,7 @@
 let startSlider =()=>{
     $('.slider').slick({
         adaptiveHeight: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         centerMode: false,
         arrows: false,
         asNavFor: ".slider-big",
@@ -18,15 +18,6 @@ let startSlider =()=>{
     });
 
 }
-
-
-
-
-
-$('.slider-test').slick();
-
-
-
 
 
 
@@ -100,6 +91,7 @@ FALL-WINTER 2021/22`,
         slider: {
             flag: false,
             filter: 'background: rgba(0, 0, 0, 0.377);',
+            body: 'overflow: hidden;',
             images:  [
                 './img/events-image/Rectangle 153.jpg',
                 './img/events-image/Rectangle 153.jpg',
@@ -131,6 +123,17 @@ FALL-WINTER 2021/22`,
     },
     mounted(){
         this.newMas = this.database
+        setTimeout(() => {
+            $('.slider-events').slick(
+                {
+                    adaptiveHeight: true,
+                    slidesToShow: 3,
+                    centerMode: false,
+                    arrows: false
+                }
+            );
+        },  100);
+        
     },
     methods: {
         filterCards(status){
@@ -146,16 +149,23 @@ FALL-WINTER 2021/22`,
             
 
         },
-        newMasSlider(index){
-            this.slider.flag = true;
-            this.slider.sliderImg = null;
-            this.slider.sliderImg = this.slider.images.slice(index);
-            this.slider.images.slice(0, index).forEach((element)=>{
-                this.slider.sliderImg.push(element)
-            })
-            setTimeout(() => {
-                startSlider()
-            }, 200);
+        newMasSlider(index, flag){
+            if(flag){
+                document.body.style= this.slider.body;
+                this.slider.flag = true;
+                this.slider.sliderImg = null;
+                this.slider.sliderImg = this.slider.images.slice(index);
+                this.slider.images.slice(0, index).forEach((element)=>{
+                    this.slider.sliderImg.push(element)
+                })
+                setTimeout(() => {
+                    startSlider()
+                }, 200);
+            }else{
+                this.slider.flag = false;
+                this.slider.body = '';
+            }
+           
             
         }
     }
