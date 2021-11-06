@@ -36,8 +36,10 @@ body{
     font-family: Mont; 
 }
 
+
+
 .main-header{
-    margin-bottom: 8.1%;
+    margin-bottom: 5%;
 }
 
 nav{
@@ -61,10 +63,40 @@ nav{
         border-radius: 50%;
        
     }
+    &:hover{
+        .nav-item__img{
+            filter: invert(100%);
+        }
+        .nav-item-sq {
+            background: #fff;
+        }
+    }
+    .nav-item-sq, .nav-item__img{
+        transition: all .5s;
+    }
 
 
 }
 
+.nav-item__text{
+    position: relative;
+    &::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgb(255, 255, 255);
+        transition: all 0.5s;
+        
+    }
+    &:hover{
+        &::after{
+            width: 100%;
+        }
+    }
+}
 .nav-item .nav-link{
     opacity: 0.7;
     transition: all .5s;
@@ -84,6 +116,8 @@ nav{
     }
     
 }
+
+
 
 .button{
     &-group{
@@ -439,6 +473,37 @@ footer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    input{
+        max-width: 260px;
+        width: 100%;
+        &:first-child{
+            margin-right: 30px;
+        }
+    }
+}
+
+.Goldcarrot{
+    opacity: 0.7;
+    position: relative;
+    transition: all 1s;
+    &::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgb(255, 255, 255);
+        transition: all 0.5s;
+        
+    }
+    &:hover{
+        opacity: 1;
+        cursor: pointer;
+        &::after{
+            width: 100%;
+        }
+    }
 }
 
 #playbill-btn{
@@ -654,6 +719,7 @@ footer{
         left: 0;
         width: 100%;
         height: 100%;
+        display: none;
         background: rgba(7, 0, 0, 0.66);
     }
     &-body{
@@ -668,7 +734,7 @@ footer{
 .exit{
     width: 45px;
     height: 45px;
-    
+    z-index: 10;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -685,6 +751,15 @@ footer{
         filter: invert(100%);
         width: 25px;
         height: auto;
+    }
+}
+
+
+.slider-events{
+    
+    .stock-date,  .stock-title, .stock-text{
+        cursor: default;
+        user-select: none;
     }
 }
 
@@ -711,29 +786,31 @@ video{
 
 
 
-.owl{
-    &-carousel{
-        position: relative;
-    }
-    &-item{
+.slider-events{
+    position: relative;
+    .slick-arrow{
         display: flex;
         justify-content: center;
     }
-    &-prev{
+    .slick-prev{
         display: none;
     }
-    &-next {
-        span{
+    .slick-next {
             display: block;
-            color: transparent;
+            font-size: 0;
             z-index: 10;
-            background: url("/img/arrow-owl.png") center no-repeat;
-         
+            background-image: url("/img/arrow-owl.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #000;
             width: 40px;
-            height: auto;
-        }
-        
-        
+            height: 40px; 
+            border: none;
+            border-radius: 50%;   
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateX(25%);
     }
     &-nav{
         position: absolute;

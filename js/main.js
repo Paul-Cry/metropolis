@@ -21,9 +21,6 @@ let startSlider =()=>{
 
 
 
-
-
-
 let app = new Vue({
     el: '#app',
     data: {
@@ -91,7 +88,6 @@ FALL-WINTER 2021/22`,
         slider: {
             flag: false,
             filter: 'background: rgba(0, 0, 0, 0.377);',
-            body: 'overflow: hidden;',
             images:  [
                 './img/events-image/Rectangle 153.jpg',
                 './img/events-image/Rectangle 153.jpg',
@@ -117,11 +113,16 @@ FALL-WINTER 2021/22`,
                 './img/events-image/Rectangle 157.png',
                 './img/events-image/Rectangle 160.png',
             ],
-            sliderImg: []
+            sliderImg: [],
+            display: null,
         },
         newMas: null
     },
+    created(){
+        this.slider.flag = false;
+    },
     mounted(){
+        
         this.newMas = this.database
         setTimeout(() => {
             $('.slider-events').slick(
@@ -129,7 +130,7 @@ FALL-WINTER 2021/22`,
                     adaptiveHeight: true,
                     slidesToShow: 3,
                     centerMode: false,
-                    arrows: false
+                    arrows: true
                 }
             );
         },  100);
@@ -151,7 +152,8 @@ FALL-WINTER 2021/22`,
         },
         newMasSlider(index, flag){
             if(flag){
-                document.body.style= this.slider.body;
+                document.body.style= 'overflow: hidden;';
+                this.slider.display = 'display: block;'
                 this.slider.flag = true;
                 this.slider.sliderImg = null;
                 this.slider.sliderImg = this.slider.images.slice(index);
@@ -163,7 +165,9 @@ FALL-WINTER 2021/22`,
                 }, 200);
             }else{
                 this.slider.flag = false;
-                this.slider.body = '';
+                document.body.style= 'overflow: visible;';
+                
+                
             }
            
             

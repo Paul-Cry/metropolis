@@ -34,7 +34,7 @@ body {
 }
 
 .main-header {
-  margin-bottom: 8.1%;
+  margin-bottom: 5%;
 }
 
 nav {
@@ -57,6 +57,32 @@ nav {
   justify-content: center;
   margin-right: 10px;
   border-radius: 50%;
+}
+.nav-link:hover .nav-item__img {
+  filter: invert(100%);
+}
+.nav-link:hover .nav-item-sq {
+  background: #fff;
+}
+.nav-link .nav-item-sq, .nav-link .nav-item__img {
+  transition: all 0.5s;
+}
+
+.nav-item__text {
+  position: relative;
+}
+.nav-item__text::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: white;
+  transition: all 0.5s;
+}
+.nav-item__text:hover::after {
+  width: 100%;
 }
 
 .nav-item .nav-link {
@@ -425,6 +451,36 @@ footer hr {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.inputs-row input {
+  max-width: 260px;
+  width: 100%;
+}
+.inputs-row input:first-child {
+  margin-right: 30px;
+}
+
+.Goldcarrot {
+  opacity: 0.7;
+  position: relative;
+  transition: all 1s;
+}
+.Goldcarrot::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: white;
+  transition: all 0.5s;
+}
+.Goldcarrot:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.Goldcarrot:hover::after {
+  width: 100%;
+}
 
 #playbill-btn {
   display: none;
@@ -637,6 +693,7 @@ footer hr {
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
   background: rgba(7, 0, 0, 0.66);
 }
 .modal-wind-body {
@@ -650,6 +707,7 @@ footer hr {
 .exit {
   width: 45px;
   height: 45px;
+  z-index: 10;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -667,6 +725,14 @@ footer hr {
   filter: invert(100%);
   width: 25px;
   height: auto;
+}
+
+.slider-events .stock-date, .slider-events .stock-title, .slider-events .stock-text {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .slider-big .slider-big__img {
@@ -689,25 +755,34 @@ video {
   height: 600px;
 }
 
-.owl-carousel {
+.slider-events {
   position: relative;
 }
-.owl-item {
+.slider-events .slick-arrow {
   display: flex;
   justify-content: center;
 }
-.owl-prev {
+.slider-events .slick-prev {
   display: none;
 }
-.owl-next span {
+.slider-events .slick-next {
   display: block;
-  color: transparent;
+  font-size: 0;
   z-index: 10;
-  background: url("/img/arrow-owl.png") center no-repeat;
+  background-image: url("/img/arrow-owl.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
   width: 40px;
-  height: auto;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateX(25%);
 }
-.owl-nav {
+.slider-events-nav {
   position: absolute;
   width: 45px;
   height: 45px;
