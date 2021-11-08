@@ -14,7 +14,14 @@ let startSlider = () => {
         slidesToShow: 1,
         centerMode: false,
         fade: true,
-        asNavFor: ".slider"
+        asNavFor: ".slider",
+        responsive: [{
+            breakpoint: 557,
+            settings: {
+                dots: true
+            }
+
+        }]
     });
 
 }
@@ -146,11 +153,15 @@ FALL-WINTER 2021/22`,
         this.slider.flag = false;
     },
     mounted() {
-
         this.newMas = this.database
         setTimeout(() => {
             EventsSlider()
         }, 100);
+        if (window.innerWidth < 551) {
+            this.slider.flag = true
+            this.slider.sliderImg = this.slider.images
+            this.slider.display = 'display: block;'
+        }
 
     },
     methods: {
@@ -195,19 +206,27 @@ FALL-WINTER 2021/22`,
             setTimeout(() => {
                 EventsSlider()
             }, 100);
-
+            if (window.innerWidth < 551) {
+                setTimeout(() => {
+                    startSlider()
+                }, 200);
+            }
 
         },
         CrtArrDownslider(index) {
             this.eventText = this.newMas[index];
-            this.eventsNext = true;
-            
+            this.slider.flag = false 
             setTimeout(() => {
-                window.scrollTo(0, 0);
-                this.eventsNext = false
-            }, 10000)
+                this.slider.flag = false 
+            }, timeout);
+            // this.eventsNext = true;
 
-            console.log(index)
+            // setTimeout(() => {
+            //     window.scrollTo(0, 0);
+            //     this.eventsNext = false
+            // }, 100)
+
+            
         }
 
     }
