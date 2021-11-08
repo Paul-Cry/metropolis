@@ -1,5 +1,5 @@
 
-let startSlider =()=>{
+let startSlider = () => {
     $('.slider').slick({
         adaptiveHeight: true,
         slidesToShow: 4,
@@ -19,7 +19,7 @@ let startSlider =()=>{
 
 }
 
-let EventsSlider = ()=>{
+let EventsSlider = () => {
     $('.slider-events').slick({
         infinite: true,
         slidesToShow: 3,
@@ -29,13 +29,13 @@ let EventsSlider = ()=>{
                 breakpoint: 1255,
                 settings: {
                     slidesToShow: 2,
-                  }
+                }
             },
             {
                 breakpoint: 770,
                 settings: {
                     slidesToShow: 1,
-                  }
+                }
             }
         ]
     });
@@ -57,7 +57,7 @@ let app = new Vue({
                 statusText: 'Текущее ',
                 date: '15,16,18 октября, 2021',
                 title: 'LIMÉ FALL’21',
-                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб', 
+                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб',
             },
             {
                 id: 9,
@@ -66,7 +66,7 @@ let app = new Vue({
                 statusText: 'Скоро!',
                 date: '25 января, 2022',
                 title: 'COLD FUSION CONVERSE',
-                text: 'Converse представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.', 
+                text: 'Converse представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.',
             },
             {
                 id: 10,
@@ -76,7 +76,7 @@ let app = new Vue({
                 date: '12 декабря - 25 января, 2021/22',
                 title: `AKHMADULLINA DREAMS
 FALL-WINTER 2021/22`,
-                text: 'Коллекция Akhmadullina Dreams Fall-Winter 2021/22  Основа коллекции – цветовая палитра, сочетающая в себе спокойные оттенки и яркие акценты.', 
+                text: 'Коллекция Akhmadullina Dreams Fall-Winter 2021/22  Основа коллекции – цветовая палитра, сочетающая в себе спокойные оттенки и яркие акценты.',
             },
             {
                 id: 8,
@@ -85,7 +85,7 @@ FALL-WINTER 2021/22`,
                 statusText: 'Завершенное',
                 date: '16 сентября, 2021',
                 title: 'SCRIBBLE PARTY',
-                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб', 
+                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб',
             },
             {
                 id: 7,
@@ -94,7 +94,7 @@ FALL-WINTER 2021/22`,
                 statusText: 'Текущее ',
                 date: '20 августа  - 30 сентября, 2021',
                 title: 'THE TALLBROTHERS',
-                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб', 
+                text: 'Мыслями — в Париже! Основу новой коллекции LIMÉ FALL’21 составили классические осенние модели, с которыми ассоциируется парижский гардероб',
             },
             {
                 id: 6,
@@ -103,14 +103,14 @@ FALL-WINTER 2021/22`,
                 statusText: 'Скоро!',
                 date: '5 сентября, 2021',
                 title: 'ОСЕННИЙ ВЗРЫВ ',
-                text: 'Отдыхаем вместе с RE:STORE 10% на ноутбуки Mac для студентов и преподавателей.', 
-            }, 
-            
+                text: 'Отдыхаем вместе с RE:STORE 10% на ноутбуки Mac для студентов и преподавателей.',
+            },
+
         ],
         slider: {
             flag: false,
             filter: 'background: rgba(0, 0, 0, 0.377);',
-            images:  [
+            images: [
                 './img/events-image/Rectangle 153.jpg',
                 './img/events-image/Rectangle 153.jpg',
                 './img/events-image/Rectangle 153.jpg',
@@ -139,64 +139,77 @@ FALL-WINTER 2021/22`,
             display: null,
         },
         eventText: null,
-        newMas: null
+        newMas: null,
+        eventsNext: false, //Переменная отвечающая за opacity
     },
-    created(){
+    created() {
         this.slider.flag = false;
     },
-    mounted(){
-        
+    mounted() {
+
         this.newMas = this.database
         setTimeout(() => {
             EventsSlider()
-        },  100);
-        
+        }, 100);
+
     },
     methods: {
-        filterCards(status){
+        filterCards(status) {
             this.button = status;
-            if(status == 'all'){
+            if (status == 'all') {
                 this.newMas = this.database;
                 console.log('all')
-            }else{    
-                this.newMas = this.database.filter((element)=>{
+            } else {
+                this.newMas = this.database.filter((element) => {
                     return element.status === status;
                 })
             }
-            
+
 
         },
-        newMasSlider(index, flag){
-            if(flag){
-                document.body.style= 'overflow: hidden;';
+        newMasSlider(index, flag) {
+            if (flag) {
+                document.body.style = 'overflow: hidden;';
                 this.slider.display = 'display: block;'
                 this.slider.flag = true;
                 this.slider.sliderImg = null;
                 this.slider.sliderImg = this.slider.images.slice(index);
-                this.slider.images.slice(0, index).forEach((element)=>{
+                this.slider.images.slice(0, index).forEach((element) => {
                     this.slider.sliderImg.push(element)
                 })
                 setTimeout(() => {
                     startSlider()
                 }, 200);
-            }else{
+            } else {
                 this.slider.flag = false;
-                document.body.style= 'overflow: visible;';
-                
-                
+                document.body.style = 'overflow: visible;';
+
+
             }
-           
-            
+
+
         },
-        Startevents(index){
+        Startevents(index) {
             this.eventText = this.database[index];
             this.page = 'events'
             setTimeout(() => {
                 EventsSlider()
             }, 100);
+
+
+        },
+        CrtArrDownslider(index) {
+            this.eventText = this.newMas[index];
+            this.eventsNext = true;
             
-        
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                this.eventsNext = false
+            }, 10000)
+
+            console.log(index)
         }
+
     }
 })
 

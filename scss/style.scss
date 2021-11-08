@@ -240,6 +240,7 @@ nav{
         width: 416px;
         height: 416px;
         margin: 5px;
+      
         &-status{
             position: absolute;
             top: 0;
@@ -313,10 +314,14 @@ nav{
             font-style: normal;
             border-radius: 0;
             margin-left: 10px;
-            transiton: all 0.5s;
+            transition: all 0.5s;
+            transform: translateY(160%);
             &:hover{
-                background-color: #ffff;
+                background-color: #ffff;   
             }
+        }
+        &:hover &-button{
+            transform: translateY(0%);
         }
         //Ссылки на изображения 
         &:nth-child(1){
@@ -515,14 +520,15 @@ footer{
 .events-header {
     height: (100vw*0.3);
     position: relative;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, #000000 100%), url('../img/events-img.png');
-    background-repeat: no-repeat;
+    background-repeat: no-repeat !important;
     color: white;
+    background-size: cover !important;
     margin-bottom: 100px;
 }
 
 
 .events{
+    transition: all .5s;
     &-status{
         padding: 14px 50px;
         position: absolute;
@@ -566,8 +572,9 @@ footer{
         padding:  10px 20px;
         background-color: #000;
         width: max-content;
+        white-space: normal !important;
         font-weight: 800;
-        font-size: 3.8em;
+        font-size: 3em;
         line-height: 79px;
         margin-bottom: 10px;
     }
@@ -710,6 +717,9 @@ footer{
     }
     hr{
         margin-bottom: 100px;
+    }
+    &.active{
+        opacity: 0;
     }
 }
 
