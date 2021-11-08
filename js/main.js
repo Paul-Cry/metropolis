@@ -19,13 +19,35 @@ let startSlider =()=>{
 
 }
 
+let EventsSlider = ()=>{
+    $('.slider-events').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1255,
+                settings: {
+                    slidesToShow: 2,
+                  }
+            },
+            {
+                breakpoint: 770,
+                settings: {
+                    slidesToShow: 1,
+                  }
+            }
+        ]
+    });
+}
+
 
 
 let app = new Vue({
     el: '#app',
     data: {
         button: 'all',
-        page: 'events',
+        page: 'main',
         path: '',
         database: [
             {
@@ -116,6 +138,7 @@ FALL-WINTER 2021/22`,
             sliderImg: [],
             display: null,
         },
+        eventText: null,
         newMas: null
     },
     created(){
@@ -125,14 +148,7 @@ FALL-WINTER 2021/22`,
         
         this.newMas = this.database
         setTimeout(() => {
-            $('.slider-events').slick(
-                {
-                    adaptiveHeight: true,
-                    slidesToShow: 3,
-                    centerMode: false,
-                    arrows: true
-                }
-            );
+            EventsSlider()
         },  100);
         
     },
@@ -171,6 +187,15 @@ FALL-WINTER 2021/22`,
             }
            
             
+        },
+        Startevents(index){
+            this.eventText = this.database[index];
+            this.page = 'events'
+            setTimeout(() => {
+                EventsSlider()
+            }, 100);
+            
+        
         }
     }
 })

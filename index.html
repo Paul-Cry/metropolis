@@ -27,6 +27,7 @@
                                 <img src="./img/time.png" alt="" class="nav-item__img">
                             </div>
                             <span class="nav-item__text">10:00 - 23:00
+                                <div class=""></div>
                             </span>
                         </a>
                     </li>
@@ -91,7 +92,7 @@
                         <option value="end"  @click.prevent="filterCards('end')">Завершенные</option>
                     </select>
                     <div class="stocks">
-                        <div class="stock" :key='element.id' v-for='element in newMas' v-bind:style="{background: element.bcg}">
+                        <div class="stock" :key='element.id' v-for='(element, index) in newMas' v-bind:style="{background: element.bcg}">
                             <span class="stock-status" :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
                             <div class="stock-content">
                                 <div class="stock-date">
@@ -105,7 +106,7 @@
                                     {{element.text}}
 
                                 </p>
-                                <button class="stock-button btn" @click='page ="events"'>
+                                <button class="stock-button btn" @click='Startevents(index)'>
                                     Подробнее
                                 </button>
                             </div>
@@ -134,11 +135,10 @@
                     <h2 class="events-about-title">О мероприятии</h2>
                     <div class="events-about-text">
                         Converse представляет капсулу «Сold Fusion», которая состоит из двух силуэтов: Chuck Taylor All Star Lugged Winter 2.0 и Chuck 70 Explore WP.
-                        <br><br>
-
-                        Сhuck Taylor AS Lugged Winter 2.0<br><br>
+           
+                        Сhuck Taylor AS Lugged Winter 2.0
                         Верх из водонепроницаемой кожи и холщовый язычок дополнены крючками для быстрой шнуровки, благодаря которым кеды идеально прилегают к ноге и не пропускают тепло. Дизайн протекторов на подошве вдохновлен шевроном, полосы которого направлены в противоположные стороны на пятке и мысе. Это улучшает сцепление и гарантирует защиту от скольжения. Для достижения максимального комфорта в модели объединяются технологии Memory Foam и стелька EVA, а согревающее покрытие согреет ноги в холодную погоду.
-                        <br><br>
+                   
                         Сhuck 70 Explore WP технологии Memory Foam и стелька EVA.
 
                     </div>
@@ -210,9 +210,9 @@
                 <div class="events-video">
                     <h2 class="events-video__title">Видео</h2>
                     <div class="events-style">
-                        <!-- <button class="events-style__button">
+                        <button class="events-style__button">
                             <img src="./img/logos_youtube.png" alt="">
-                        </button> -->
+                        </button>
                         <video class="events-video__viedo" controls src="./video/Кроссовки_ASICS_Tiger_из_новой_коллекции_ _Видео_ролик_презентация_ _Спортивная_обувь_Асикс.mp4"></video>
                     </div>
                     
@@ -221,7 +221,7 @@
                 <div class="events-other">
                     <div class="events-other-row">
                         <h3 class="events-other__title">Другие мероприятия</h3>
-                        <a href="#" class="events-other__link">
+                        <a href="#" class="events-other__link" @click.prevent='page= "main"'>
                             Смотреть все мероприятия
                         </a>
                     </div>
