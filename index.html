@@ -101,10 +101,10 @@
                             <option value="end" @click.prevent="filterCards('end')">Завершенные</option>
                         </select>
                         <div class="stocks">
-                            <div class="stock" :key='element.id' v-for='(element, index) in newMas'
-                                v-bind:style="{background: element.bcg}">
+                            <div class="stock" :key='element.id' v-for='(element, index) in newMas'>
                                 <span class="stock-status"
                                     :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
+                                <div class="stock-background" v-bind:style="{background: element.bcg}"></div>
                                 <div class="stock-content">
                                     <div class="stock-date">
                                         <img src="./img/calendar_today.png" alt="" class="stock__icon">
@@ -224,7 +224,6 @@
 
                             </div>
                         </transition>
-
                     </div>
                     <div class="events-video">
                         <h2 class="events-video__title">Видео</h2>

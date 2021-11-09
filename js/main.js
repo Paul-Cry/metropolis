@@ -12,13 +12,15 @@ let startSlider = () => {
     $('.slider-big').slick({
         adaptiveHeight: true,
         slidesToShow: 1,
+        infinite: true,
         centerMode: false,
         fade: true,
         asNavFor: ".slider",
         responsive: [{
             breakpoint: 557,
             settings: {
-                dots: true
+                dots: true,
+                speed: 800
             }
 
         }]
@@ -215,10 +217,13 @@ FALL-WINTER 2021/22`,
         },
         CrtArrDownslider(index) {
             this.eventText = this.newMas[index];
-            this.slider.flag = false 
+            this.page = ''
             setTimeout(() => {
-                this.slider.flag = false 
-            }, timeout);
+                this.page = 'events'
+                setTimeout(() => {
+                    EventsSlider()
+                }, 200);
+            }, 600);
             // this.eventsNext = true;
 
             // setTimeout(() => {
@@ -226,9 +231,8 @@ FALL-WINTER 2021/22`,
             //     this.eventsNext = false
             // }, 100)
 
-            
-        }
 
+        }
     }
 })
 
