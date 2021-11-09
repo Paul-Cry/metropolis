@@ -28,7 +28,7 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <div class="nav-item-sq">
-                                    <img src="./img/time.png" alt="" class="nav-item__img">
+                                    <img src="./img/time.svg" alt="" class="nav-item__img">
                                 </div>
                                 <span class="nav-item__text">10:00 - 23:00
                                     <div class=""></div>
@@ -38,7 +38,7 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">
                                 <div class="nav-item-sq">
-                                    <img src="./img/gps.png" alt="" class="nav-item__img">
+                                    <img src="./img/gps.svg" alt="" class="nav-item__img">
                                 </div>
                                 <span class="nav-item__text">Как добраться</span>
                             </a>
@@ -163,26 +163,26 @@
                     <div class="events-contact">
                         <h2 class="events-contact-title">Контактная информация</h2>
                         <div class="events-contact-item">
-                            <img src="./img/events/events-gps.png" alt="">
+                            <img src="./img/events/events-gps.svg" alt="">
                             <span>125171, Москва, Ленинградское шоссе, 16а, стр.4</span>
                         </div>
                         <div class="events-contact-item">
-                            <img src="./img/events/events-phone.png" alt="">
+                            <img src="./img/events/events-phone.svg" alt="">
                             <span>Телефон: +7 495 197-77-11</span>
                         </div>
                         <div class="events-contact-item">
-                            <img src="./img/events/events-time.png" alt="">
+                            <img src="./img/events/events-time.svg" alt="">
                             <span>Часы работы с 10:00 до 23:00</span>
                         </div>
                         <div class="events-contact-item">
                             <div class='events_img'>
-                                <img src="./img/events/events-vk.png" alt="">
+                                <img src="./img/events/events-vk.svg" alt="">
                             </div>
                             <span>Вконтакте</span>
                         </div>
                         <div class="events-contact-item">
                             <div class="events_img">
-                                <img src="./img/events/events-inst.png" alt="">
+                                <img src="./img/events/events-inst.svg" alt="">
                             </div>
 
                             <span>Instagram</span>
@@ -198,7 +198,7 @@
                         <div class="events-image" v-for='(element, index) in slider.images'>
                             <img class='events-image_item' :src="slider.images[index]" alt=""
                                 @click='newMasSlider(index, true)'>
-                            <img class='events-image_item' src="./img/events-image/loop.png" alt=""
+                            <img class='events-image_item' src="./img/events-image/loop.svg" alt=""
                                 @click='newMasSlider(index, true)'>
                         </div>
                         <transition name='slider'>
@@ -243,9 +243,10 @@
                         </div>
                         <div class="slider-events owl-slider ">
                             <div class="slider__item" v-for='(element, index) in newMas'>
-                                <div class="stock" :key='element.id' v-bind:style="{background: element.bcg}">
+                                <div class="stock" :key='element.id'>
                                     <span class="stock-status"
                                         :class="{'next': element.status == 'next', 'current': element.status == 'now', 'end': element.status == 'end'}">{{element.statusText}}</span>
+                                    <div class="stock-background" v-bind:style="{background: element.bcg}"></div>
                                     <div class="stock-content">
                                         <div class="stock-date">
                                             <img src="./img/calendar_today.png" alt="" class="stock__icon">
@@ -274,22 +275,28 @@
         <footer>
             <div class="container">
                 <div class="footer-row">
-                    <a href="#" class='block-footer-logo'><img src="./img/logo-footer.png" alt=""
+                    <a href="#" class='block-footer-logo'><img src="./img/logo-footer.svg" alt=""
                             class="footer-logo"></a>
                     <div class="footer-info">
                         <h5>Контактная информация</h5>
                         <div class="footer-info-content">
                             <a href="" class="footer-item">
-                                <img src="./img/footer-gps.png" alt="" class="footer-icon">
-                                <span class="footer-text">125171, Москва, Ленинградское шоссе, 16а, стр.4</span>
+                                <div class="footer-item-sq">
+                                    <img src="./img/gps.svg" alt="" class="footer-icon">
+                                </div>
+                                <div class="footer-text">125171, Москва, Ленинградское шоссе, 16а, стр.4</div>
                             </a>
                             <a href="" class="footer-item">
-                                <img src="./img/footer-phone.png" alt="" class="footer-icon">
-                                <span class="footer-text">Телефон: +7 495 197-77-11</span>
+                                <div class="footer-item-sq">
+                                    <img src="./img/Group.svg" alt="" class="footer-icon">
+                                </div>
+                                <div class="footer-text">Телефон: +7 495 197-77-11</div>
                             </a>
                             <a href="" class="footer-item">
-                                <img src="./img/footer-time.png" alt="" class="footer-icon">
-                                <span class="footer-text">Часы работы с 10:00 до 23:00</span>
+                                <div class="footer-item-sq">
+                                    <img src="./img/time.svg" alt="" class="footer-icon">
+                                </div>
+                                <div class="footer-text">Часы работы с 10:00 до 23:00</div>
                             </a>
                         </div>
                     </div>
@@ -314,9 +321,18 @@
                         <p class='footerN'>«Метрополис»</p>
                     </div>
                     <div class="footer-row-icons">
-                        <a href="#"><img src="./img/ins.png" alt=""></a>
-                        <a href="#"><img src="./img/vk.png" alt=""></a>
-                        <a href="#"><img src="./img/facebook.png" alt=""></a>
+                        <div class="footer-item-sq">
+                            <a href="#"><img src="./img/ins.svg" alt="" class='footer-icon'></a>
+                        </div>
+                        <div class="footer-item-sq">
+                            <a href="#"><img src="./img/vk.svg" alt="" class='footer-icon'></a>
+                        </div>
+                        <div class="footer-item-sq">
+                            <a href="#"><img src="./img/facebook.svg" alt="" class='footer-icon'></a>
+                        </div>
+
+
+
                     </div>
                     <span class='Goldcarrot'>Разработка Gold-Carrot</span>
                 </div>

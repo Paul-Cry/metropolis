@@ -180,7 +180,7 @@ FALL-WINTER 2021/22`,
 
 
         },
-        newMasSlider(index, flag) {
+        newMasSlider(index, flag) { //Фармируется массив для слайдера обуви 
             if (flag) {
                 document.body.style = 'overflow: hidden;';
                 this.slider.display = 'display: block;'
@@ -203,6 +203,8 @@ FALL-WINTER 2021/22`,
 
         },
         Startevents(index) {
+            // при нажатии подробнее сохраняет данные карточки и переносит в окно
+            // мероприятий и запускает slider
             this.eventText = this.database[index];
             this.page = 'events'
             setTimeout(() => {
@@ -216,6 +218,9 @@ FALL-WINTER 2021/22`,
 
         },
         CrtArrDownslider(index) {
+            // при нажатии подробнее сохраняет данные карточки из слайдера 
+            // который находиться в низу и переносит в окно
+            // мероприятий и запускает slider
             this.eventText = this.newMas[index];
             this.page = ''
             setTimeout(() => {
@@ -224,14 +229,6 @@ FALL-WINTER 2021/22`,
                     EventsSlider()
                 }, 200);
             }, 600);
-            // this.eventsNext = true;
-
-            // setTimeout(() => {
-            //     window.scrollTo(0, 0);
-            //     this.eventsNext = false
-            // }, 100)
-
-
         }
     }
 })

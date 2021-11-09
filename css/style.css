@@ -50,7 +50,8 @@ nav {
   color: #fff;
 }
 .nav-link .nav-item-sq {
-  padding: 8.7px;
+  width: 35px;
+  height: 35px;
   background: rgba(196, 196, 196, 0.2);
   display: flex;
   align-items: center;
@@ -172,6 +173,7 @@ nav {
 
 .playbill__title {
   margin-bottom: 3.5%;
+  font-weight: 600;
 }
 .playbill-buttons {
   transition: all 0.5s;
@@ -189,13 +191,15 @@ nav {
 }
 .playbill-btn {
   transition: all 0.5s;
-  padding: 2.2% 16px;
+  padding: 2.2% 0;
   color: #080808;
   font-weight: 300;
   background-color: #fff;
   border: 1px solid #EDF0F0;
   margin: 0;
   white-space: nowrap;
+  min-width: 175px;
+  max-width: 175px;
 }
 
 .stocks {
@@ -204,7 +208,6 @@ nav {
   max-width: -moz-max-content;
   max-width: max-content;
   height: 100%;
-  justify-content: center;
   margin-bottom: 200px;
   flex-wrap: wrap;
 }
@@ -228,6 +231,7 @@ nav {
   font-size: 14px;
   color: white;
   font-weight: 800;
+  z-index: 40;
 }
 .stock-status.current {
   background-color: #1D9A12;
@@ -278,6 +282,7 @@ nav {
 }
 .stock-title pre {
   font-family: Mont;
+  margin: 0;
 }
 .stock-text {
   color: white;
@@ -285,7 +290,7 @@ nav {
   font-size: 14px;
   line-height: 120%;
   min-height: 87px;
-  margin-bottom: 42px;
+  margin-bottom: 0;
   padding-right: 40px;
 }
 .stock-button {
@@ -295,7 +300,7 @@ nav {
   font-style: normal;
   border-radius: 0;
   margin-left: 10px;
-  transition: all 0.5s;
+  transition: all 0.2s;
   transform: translateY(160%);
 }
 .stock-button:hover {
@@ -357,7 +362,7 @@ footer hr {
 }
 .footer-row:first-child {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 3fr 2fr;
   grid-template-rows: 1fr;
 }
 .footer-row:first-child h5 {
@@ -375,10 +380,19 @@ footer hr {
   justify-content: space-between;
   align-items: center;
 }
+.footer-row:last-child .footer-item-sq:hover {
+  background: #fff;
+}
+.footer-row:last-child .footer-item-sq:hover .footer-icon {
+  filter: invert(100%);
+}
 .footer-row:last-child span {
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
+}
+.footer-row-icons {
+  display: flex;
 }
 .footer-row-icons a {
   margin-right: 30px;
@@ -389,8 +403,10 @@ footer hr {
 .footer-item {
   color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
   opacity: 0.7;
-  transiton: all 1s;
+  transition: all 1s;
 }
 .footer-item:not(.footer-item:last-child) {
   margin-bottom: 29px;
@@ -399,9 +415,25 @@ footer hr {
   opacity: 1;
   color: white;
 }
-.footer-icon {
+.footer-item:hover .footer-item-sq {
+  background: #fff;
+}
+.footer-item:hover .footer-icon {
+  filter: invert(100%);
+}
+.footer-item-sq {
   width: 40px;
+  height: 40px;
+  background: rgba(196, 196, 196, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
   margin-right: 10px;
+  border-radius: 50%;
+}
+.footer-icon {
+  transition: all 0.5s;
 }
 .footer-text {
   font-weight: 600;
@@ -832,8 +864,8 @@ video {
   height: 100%;
   transition: all 0.5s;
   z-index: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
@@ -1003,6 +1035,12 @@ video {
     margin-bottom: 20px;
   }
 }
+@media screen and (max-width: 1391px) and (min-width: 1201px) {
+  .stock {
+    width: 500px;
+    height: 500px;
+  }
+}
 @media screen and (max-width: 1255px) {
   .events-status {
     padding: 10px 50px;
@@ -1025,6 +1063,14 @@ video {
   }
 }
 @media screen and (max-width: 551px) {
+  .events {
+    padding: 0 30px;
+  }
+  .events-status {
+    padding: 8px 40px;
+    font-size: 14px;
+  }
+
   .events-content {
     padding-left: 20px;
     bottom: inherit;
@@ -1037,7 +1083,32 @@ video {
   }
 
   .events-header {
-    height: 80vh;
+    height: 50vh;
+  }
+
+  .slider-events .slick-next {
+    transform: scale(0.8) translateX(30%);
+  }
+
+  .events hr, .events-video {
+    margin-bottom: 60px;
+  }
+
+  .slider-big .slick-arrow.slick-prev {
+    transform: rotate(180deg) translateY(50%) translateX(35%) scale(0.7) !important;
+  }
+
+  .slider-big .slick-arrow.slick-next {
+    transform: translateX(35%) translateY(-50%) scale(0.7) !important;
+  }
+
+  .events-date img {
+    width: 20px;
+    height: auto;
+  }
+  .events-date p {
+    font-size: 14px;
+    line-height: 39px;
   }
 
   .events-image {
@@ -1119,12 +1190,13 @@ video {
     justify-content: center;
   }
   .slick-dots li button {
-    border: 1px solid;
-    margin-right: 10px;
+    border: none;
+    margin-right: 5px;
     transition: all 1s;
     width: 10px;
+    font-size: 0;
     height: 10px;
-    background: #fff;
+    background: #e7e5e5;
     border-radius: 50%;
     display: flex;
     align-items: center;
